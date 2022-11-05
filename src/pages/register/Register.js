@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const Register = () => {
   const [name, setName] = useState("");
-  const [lastName, setLasName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let path = useLocation().pathname;
@@ -16,20 +16,39 @@ const Register = () => {
       <Form className="form">
         <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter your name" />
+          <Form.Control
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            placeholder="Enter your name"
+          />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Last Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter your lastname" />
+
+          <Form.Control
+            onChange={(e) => setLastName(e.target.value)}
+            type="text"
+            placeholder="Enter your lastname"
+          />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+
+          <Form.Control
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="Enter email"
+          />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+
+          <Form.Control
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="Password"
+          />
         </Form.Group>
 
         <Button variant="primary" type="submit">
