@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 const ToRedirect = ({ nav }) => {
+  const navigate = useNavigate();
   useEffect(() => {
     navigate(nav);
   }, [navigate, nav]);
-
-  const navigate = useNavigate();
 
   return <div>ToRedirect</div>;
 };
