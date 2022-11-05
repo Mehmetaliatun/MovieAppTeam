@@ -21,7 +21,7 @@ const Login = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-        <div className="warning">
+        {/* <div className="warning">
           <p className="info">
             {path === "/login" && "Don't you have an account."}
             {path === "/register" && "Already have an account."}
@@ -33,7 +33,7 @@ const Login = () => {
               {path === "/login" && "Register"}
             </Link>
           </p>
-        </div>
+        </div> */}
       </Form>
     </div>
   );

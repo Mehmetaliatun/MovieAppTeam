@@ -9,7 +9,7 @@ const Register = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  let path = useLocation().pathname;
+  // let path = useLocation().pathname;
   const navigate = useNavigate();
   return (
     <div className="register">
@@ -54,7 +54,7 @@ const Register = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-        <div className="warning">
+        {/* <div className="warning">
           <p className="info">
             {path === "/login" && "Don't you have an account."}
             {path === "/register" && "Already have an account."}
@@ -66,7 +66,7 @@ const Register = () => {
               {path === "/login" && "Register"}
             </Link>
           </p>
-        </div>
+        </div> */}
       </Form>
     </div>
   );
