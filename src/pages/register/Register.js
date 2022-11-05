@@ -1,10 +1,16 @@
 import "./Register.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Register = () => {
+  const [name, setName] = useState("");
+  const [lastName, setLasName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   let path = useLocation().pathname;
+  const navigate = useNavigate();
   return (
     <div className="register">
       <Form className="form">
