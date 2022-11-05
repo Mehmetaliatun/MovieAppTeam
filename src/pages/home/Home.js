@@ -21,7 +21,7 @@ const Home = () => {
       console.log(error);
     }
   };
-
+  console.log(movies);
   return (
     <div className="movieContainer">
       {/* soru isareti optional chaining icin var yoksa 0 ceker */}
