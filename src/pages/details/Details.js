@@ -9,8 +9,27 @@ const API_KEY = `70733706aefbcc98ca02849db809a586`;
 const youtubeUrl = "https://www.youtube.com/embed/";
 
 const Details = () => {
+  const [trailer, setTrailer] = useState();
   const { id, poster_path, overview, title } = useLocation().state;
-  console.log(id, poster_path, overview, title);
+  // console.log(id, poster_path, overview, title);
+  useEffect(() => {
+    getDetails(id, API_KEY);
+  }, [id]);
+  const getDetails = async (id, apiKey) => {
+    try {
+      const {
+        data: { results },
+      } = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
+      );
+      setTrailer(results);
+      // console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const filterTrailer = trailer?.filter((e) => e.type === "Trailer");
+  console.log(filterTrailer);
   return (
     <div className="details">
       <div className="trailer-overview">
@@ -27,6 +46,16 @@ const Details = () => {
           <p className="trailer-parag">{overview}</p>
         </div>
       </div>
+      {trailer ? (
+        <iframe
+          src={`${youtubeUrl}${filterTrailer[0]?.key}`}
+          title="YouTube Video Player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope;picture-in-picture"
+        ></iframe>
+      ) : (
+        <div>Loading...Please Wait</div>
+      )}
     </div>
   );
 };
