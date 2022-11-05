@@ -7,7 +7,12 @@ import { AuthContext } from "../../context/AuthContext";
 const IMG_API = "https://image.tmdb.org/t/p/original";
 const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
   const { currentUser } = useContext(AuthContext);
-  const handleClick = () => {};
+  const navigate = useNavigate();
+  const handleClick = () => {
+    currentUser
+      ? navigate("/details", { state: { id, poster_path, title, overview } })
+      : alert("Please Login");
+  };
   return (
     <div className="movie">
       <img src={`${IMG_API}${poster_path}`} alt="img" />
